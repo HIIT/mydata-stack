@@ -11,6 +11,8 @@ output:
 \includegraphics{images/mydata_logo.png}
 \end{center}
 
+
+
 **Authors:**
 
 | Nomi Byström  	Aalto University
@@ -24,6 +26,12 @@ output:
 | Antti Poikola 	Helsinki Institute of Information Technology
 | Mika Rautiainen	University of Oulu
 | Samuli Tuoriniemi	University of Oulu
+
+
+**Version:**
+
+| 1.0.0 (May 14th 2015)
+| See updated versions from:[hiit.github.io/mydata-stack](https://hiit.github.io/mydata-stack/)
 
 \newpage
 
