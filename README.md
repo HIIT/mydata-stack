@@ -14,18 +14,20 @@ Contact: Antti Poikola (antti.poikola@hiit.fi)
 
 
 **Authors:**
+<pre>
+Nomi Byström          Aalto University
+Harri Hirvonsalo      University of Oulu
+Harri Honko   	      Tampere University of Technology
+Antti Kallonen	      Tampere University of Technology
+Yki Kortesniemi	      Helsinki Institute of Information Technology
+Kai Kuikkaniemi	      Helsinki Institute of Information Technology
+Ilari Maarala 	      University of Oulu
+Ilkka Niskanen	      VTT Oy
+Antti Poikola 	      Helsinki Institute of Information Technology
+Mika Rautiainen	      University of Oulu
+Samuli Tuoriniemi	    University of Oulu
+</pre>
 
-| Nomi Byström          Aalto University
-| Harri Hirvonsalo	University of Oulu
-| Harri Honko   	Tampere University of Technology
-| Antti Kallonen	Tampere University of Technology
-| Yki Kortesniemi	Helsinki Institute of Information Technology
-| Kai Kuikkaniemi	Helsinki Institute of Information Technology
-| Ilari Maarala 	University of Oulu
-| Ilkka Niskanen	VTT Oy
-| Antti Poikola 	Helsinki Institute of Information Technology
-| Mika Rautiainen	University of Oulu
-| Samuli Tuoriniemi	University of Oulu
 
 
 [![DOI](https://zenodo.org/badge/985/HIIT/mydata-stack.svg)](http://dx.doi.org/10.5281/zenodo.17628)
