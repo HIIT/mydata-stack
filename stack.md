@@ -8,12 +8,6 @@ output:
   word_document: default
 ---
 
-\begin{center}
-\includegraphics{images/mydata_logo.png}
-\end{center}
-
-
-
 **Authors:**
 
 | Anette Alén-Savikko	Aalto University / Helsinki Institute for Information Technology HIIT
@@ -393,11 +387,11 @@ All Data Connections are recorded in the Audit Log.
 
 **Consent (lawful basis)** is one of the grounds for lawfulness of processing personal data and it is given by the Data Subject for one or more specific purposes (Art. 6 GDPR). Consent means "any freely given, specific, informed and unambiguous indication" of the data subject’s wishes by which they signify agreement to processing of their personal data, either by statement or clear affirmative action (Art. 4(8) GDPR). With regard to specific categories of personal data (Art. 9) and transfers of personal data in certain circumstances (Art. 44) consent must also be explicit.
 
-**Consent Record**documents the permission the Account Owner has granted to a specific service. For authorising data processing within a service, the Account Owner creates a single Consent Record for the related service. For authorising data transfer from a specific Source to a specific Sink, the Account Owner creates a pair of Consent Records (one for the Source and one for the Sink). The Source’s CR defines, what data can be provisioned to the specified Sink, and the Sink’s CR defines, how the data can be accessed. The Sink’s CR can also include the permissions for data processing. A Consent Recordt is a manifestation of legally valid Consent and makes it technically feasible to change or withdraw the consent dynamically. Consent Records are stored in the MyData Account.
+**Consent Record** documents the permission the Account Owner has granted to a specific service. For authorising data processing within a service, the Account Owner creates a single Consent Record for the related service. For authorising data transfer from a specific Source to a specific Sink, the Account Owner creates a pair of Consent Records (one for the Source and one for the Sink). The Source’s CR defines, what data can be provisioned to the specified Sink, and the Sink’s CR defines, how the data can be accessed. The Sink’s CR can also include the permissions for data processing. A Consent Recordt is a manifestation of legally valid Consent and makes it technically feasible to change or withdraw the consent dynamically. Consent Records are stored in the MyData Account.
 
 **Consent Status Record** is a record MyData Operator sends to a service when status of a consent changes. Service MUST store these records for future use.
 
-**Data Connection **is an authorised transfer of data from a specific Source to a specific Sink.
+**Data Connection** is an authorised transfer of data from a specific Source to a specific Sink.
 
 **Data Controller (legal role)** is a natural or legal person, public authority, agency or other body which alone or jointly with others determines the purposes and means of the processing of personal data (Art. 4(5) GDPR). 
 
