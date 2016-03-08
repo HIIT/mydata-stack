@@ -1,9 +1,9 @@
 ---
 title: "MyData Architecture - Consent Based Approach for Personal Data Management"
 output:
-  html_document:
-    toc: yes
   pdf_document:
+    toc: yes
+  html_document:
     toc: yes
   word_document: default
 ---
