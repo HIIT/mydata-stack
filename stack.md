@@ -371,13 +371,13 @@ All Data Connections are recorded in the Audit Log.
 
 [1] MyData White paper, http://www.lvm.fi/web/en/publication/-/view/4440204.
 
-[2] MyData Service Registry, https://github.com/HIIT/mydata-service-registry-spec
+[2] MyData Service Registry, https://github.com/HIIT/mydata-stack/blob/master/MyData%20Service%20Registry%20Specification.pdf
 
-[3] MyData Service Linking, https://github.com/HIIT/mydata-service-linking-spec
+[3] MyData Service Linking, https://github.com/HIIT/mydata-stack/blob/master/MyData%20Service%20Linking%20Specification.pdf
 
-[4] MyData Authorisation, https://github.com/HIIT/mydata-data-authz-spec
+[4] MyData Authorisation, https://github.com/HIIT/mydata-stack/blob/master/MyData%20Authorisation%20Specification.pdf
 
-[5] MyData Data Connection, https://github.com/HIIT/mydata-dconnection-spec
+[5] MyData Data Connection, https://github.com/HIIT/mydata-stack/blob/master/MyData%20Data%20Connection%20Specification.pdf
 
 # Appendix 1: Glossary
 
