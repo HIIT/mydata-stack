@@ -26,18 +26,18 @@ Contact: Antti Poikola (antti.poikola@hiit.fi), Harri Honko (harri.honko@tut.fi)
 
 **Authors:**
 <pre>
-Anette Alén-Savikko	Aalto University / Helsinki Institute for Information Technology HIIT
-Nomi Byström		Aalto University / Helsinki Institute for Information Technology HIIT
-Harri Hirvonsalo	University of Oulu
+Anette Alén-Savikko Aalto University / Helsinki Institute for Information Technology HIIT
+Nomi Byström        Aalto University / Helsinki Institute for Information Technology HIIT
+Harri Hirvonsalo    University of Oulu
 Harri Honko         Tampere University of Technology
-Antti Kallonen		Tampere University of Technology
+Antti Kallonen      Tampere University of Technology
 Yki Kortesniemi     Aalto University / Helsinki Institute for Information Technology HIIT
 Kai Kuikkaniemi     Aalto University / Helsinki Institute for Information Technology HIIT
-Tuomas Paaso		VTT Oy
+Tuomas Paaso        VTT Oy
 Olli Pitkänen		Aalto University / Helsinki Institute for Information Technology HIIT
-Antti Poikola		Aalto University / Helsinki Institute for Information Technology HIIT
-Samuli Tuoriniemi	University of Oulu
-Sari Vainikainen 	VTT Oy
+Antti Poikola       Aalto University / Helsinki Institute for Information Technology HIIT
+Samuli Tuoriniemi   University of Oulu
+Sari Vainikainen    VTT Oy
 
 </pre>
 
