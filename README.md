@@ -10,8 +10,11 @@ MyData reference architecture presented in this set of specifications is a human
 **Download technical specifications linked to the master architecture:**
 
 [MyData Service Linking](https://github.com/HIIT/mydata-stack/blob/master/MyData%20Service%20Linking%20Specification.pdf)
+
 [MyData Service Registry](https://github.com/HIIT/mydata-stack/blob/master/MyData%20Service%20Registry%20Specification.pdf)
+
 [MyData Authorisation](https://github.com/HIIT/mydata-stack/blob/master/MyData%20Authorisation%20Specification.pdf)
+
 [MyData Connection](https://github.com/HIIT/mydata-stack/blob/master/MyData%20Data%20Connection%20Specification.pdf)
 
 
