@@ -34,7 +34,7 @@ Antti Kallonen      Tampere University of Technology
 Yki Kortesniemi     Aalto University / Helsinki Institute for Information Technology HIIT
 Kai Kuikkaniemi     Aalto University / Helsinki Institute for Information Technology HIIT
 Tuomas Paaso        VTT Oy
-Olli Pitkänen		Aalto University / Helsinki Institute for Information Technology HIIT
+Olli Pitkänen       Aalto University / Helsinki Institute for Information Technology HIIT
 Antti Poikola       Aalto University / Helsinki Institute for Information Technology HIIT
 Samuli Tuoriniemi   University of Oulu
 Sari Vainikainen    VTT Oy
