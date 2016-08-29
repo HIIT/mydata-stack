@@ -17,7 +17,7 @@ MyData reference architecture presented in this set of specifications is a human
 
 [MyData Authorisation](https://github.com/HIIT/mydata-stack/blob/master/mydata-data-authz.pdf)
 
-[MyData Connection](https://github.com/HIIT/mydata-stack/blob/master/mydata-dconnection.pdf)
+[MyData Connection (1.1, update coming)](https://github.com/HIIT/mydata-stack/blob/master/MyData%20Data%20Connection%20Specification.pdf)
 
 
 The specification set is work in progress and this release (1.2) is open for comments and suggestions from all readers.
@@ -40,6 +40,7 @@ Olli Pitkänen       Aalto University / Helsinki Institute for Information Techn
 Antti Poikola       Aalto University / Helsinki Institute for Information Technology HIIT
 Samuli Tuoriniemi   University of Oulu
 Sari Vainikainen    VTT Oy
+Jani Yli-Kantola    University of Oulu
 
 </pre>
 
