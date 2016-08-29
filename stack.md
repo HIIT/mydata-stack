@@ -32,6 +32,8 @@ Samuli Tuoriniemi	University of Oulu
 
 Sari Vainikainen 	VTT Oy
 
+Jani Yli-Kantola University of Oulu
+
 Table of contents
 
 [[TOC]]
@@ -134,7 +136,9 @@ Two typical cases as shown in Figure 2.2 are:
 
 ## 2.2. Use Case of this Architecture
 
-This example use case is presented to illustrate the possibilities of MyData architecture. The case covers a scenario, where *Alice* authorises a new service *(*imaginary service *Balance)* to access her data from other compatible services *(*imaginary services* Fresh Lunch and TrackMe)* using her Operator (imaginary service *MyData Link)*. Currently delegation is the only use case handled throughout the architecture related specifications and reference implementations. Other use cases are deferred to future architecture releases.![image alt text](image_3.png)
+This example use case is presented to illustrate the possibilities of MyData architecture. The case covers a scenario, where *Alice* authorises a new service *(*imaginary service *Balance)* to access her data from other compatible services *(*imaginary services* Fresh Lunch and TrackMe)* using her Operator (imaginary service *MyData Link)*. Currently delegation is the only use case handled throughout the architecture related specifications and reference implementations. Other use cases are deferred to future architecture releases.
+
+![image alt text](image_3.png)
 
 Prerequisites:
 
