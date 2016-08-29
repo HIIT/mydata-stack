@@ -15,7 +15,7 @@ MyData reference architecture presented in this set of specifications is a human
 
 [MyData Service Registry](https://github.com/HIIT/mydata-stack/blob/master/mydata-registry.pdf)
 
-[MyData Authorisation](https://github.com/HIIT/mydata-stack/blob/master/mydata-authz.pdf)
+[MyData Authorisation](https://github.com/HIIT/mydata-stack/blob/master/mydata-data-authz.pdf)
 
 [MyData Connection](https://github.com/HIIT/mydata-stack/blob/master/mydata-dconnection.pdf)
 
