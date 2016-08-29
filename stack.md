@@ -1,46 +1,52 @@
----
-title: "MyData Architecture - Consent Based Approach for Personal Data Management"
-output:
-  pdf_document:
-    toc: yes
-  html_document:
-    toc: yes
-  word_document: default
----
+MyData Architecture
+
+Consent Based Approach for Personal Data Management
+
+Release 1.2
+
+![image alt text](image_0.png)
 
 **Authors:**
 
-| Anette Alén-Savikko	Aalto University / Helsinki Institute for Information Technology HIIT
-| Nomi Byström          Aalto University / Helsinki Institute for Information Technology HIIT
-| Harri Hirvonsalo      University of Oulu
-| Harri Honko           Tampere University of Technology
-| Antti Kallonen		Tampere University of Technology
-| Yki Kortesniemi       Aalto University / Helsinki Institute for Information Technology HIIT
-| Kai Kuikkaniemi       Aalto University / Helsinki Institute for Information Technology HIIT
-| Tuomas Paaso          VTT Oy
-| Olli Pitkänen         Aalto University / Helsinki Institute for Information Technology HIIT
-| Antti Poikola         Aalto University / Helsinki Institute for Information Technology HIIT
-| Samuli Tuoriniemi     University of Oulu
-| Sari Vainikainen      VTT Oy
+Anette Alén-Savikko	Aalto University / Helsinki Institute for Information Technology HIIT
+
+Nomi Byström		Aalto University / Helsinki Institute for Information Technology HIIT
+
+Harri Hirvonsalo	University of Oulu
+
+Harri Honko		Tampere University of Technology
+
+Antti Kallonen		Tampere University of Technology
+
+Yki Kortesniemi	Aalto University / Helsinki Institute for Information Technology HIIT
+
+Kai Kuikkaniemi	Aalto University / Helsinki Institute for Information Technology HIIT
+
+Tuomas Paaso		VTT Oy
+
+Olli Pitkänen		Aalto University / Helsinki Institute for Information Technology HIIT
+
+Antti Poikola		Aalto University / Helsinki Institute for Information Technology HIIT
+
+Samuli Tuoriniemi	University of Oulu
+
+Sari Vainikainen 	VTT Oy
+
+Table of contents
+
+[[TOC]]
 
 
-**Version:**
-
-| 1.1.0 (March 7th 2016)
-| See updated versions from:[hiit.github.io/mydata-stack](https://hiit.github.io/mydata-stack/)
-
-\newpage
 
 **Notice** 
 
 This document has been prepared by Participants of Digital Health Revolution research program and is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
 
+ 
 
 Implementation or use of certain elements of this document may require licenses under third party intellectual property rights, including without limitation, patent rights. The Participants of and any other contributors to the Specification are not and shall not be held responsible in any manner for identifying or failing to identify any or all such third party intellectual property rights. This Specification is provided "AS IS," and no Participant makes any warranty of any kind, expressed or implied, including any implied warranties of merchantability, non-infringement of third party intellectual property rights, and fitness for a particular purpose.
 
 MyData Architecture defines the operations and APIs between the Operational Roles (Operator, Source, Sink etc.). Any descriptions or figures of the role’s internal structure or operations are for illustrative purposes only.
-
-\newpage
 
 # 1. Introduction
 
@@ -48,9 +54,7 @@ Applications and services collect increasing amounts of personal data about thei
 
 This document presents the MyData architecture, a human centric approach to liberate the potential of personal data and to facilitate its controlled flow from multiple data sources to applications and services. The simple core idea, the *individual in control of their own data*, is both a movement for digital human rights and an initiative for opening new business opportunities. It responds on a practical and technical level to individuals’ growing demand for control over their personal data and to organizations need to fulfill the requirements of tightening data protection regulation. Though both of these goals can be achieved within the current legal framework, the lack of interoperable implementations has kept them mostly a distant goal - a situation that we now want to change.
 
-The legal framework[^1] for protecting personal data usually starts with a freely given, specific, informed and unambiguous consent. In order for their personal data to be processed, the individual has to make a conscious choice to give consent to the external organization to process data. The consent has to be withdrawable, readable by involved trusted parties, and it should be stored in appropriate place for validity checking by the parties using or providing person’s data. This is the exact premise chosen as key guiding rule of the developed MyData model.
-
-[^1]: In this document we use the upcoming EU General Data Protection Regulation (GDPR) as example and detail it further in a separate info box.
+The legal framework (NOTE:  In this document we use the upcoming EU General Data Protection Regulation (GDPR) as example and detail it further in a separate info box.) for protecting personal data usually starts with a freely given, specific, informed and unambiguous consent. In order for their personal data to be processed, the individual has to make a conscious choice to give consent to the external organization to process data. The consent has to be withdrawable, readable by involved trusted parties, and it should be stored in appropriate place for validity checking by the parties using or providing person’s data. This is the exact premise chosen as key guiding rule of the developed MyData model.
 
 The architecture aims to provide a standard for implementations that
 
@@ -62,49 +66,41 @@ The architecture aims to provide a standard for implementations that
 
 * enable flexible service creation and new business opportunities
 
-In the following sections we present an overview of the MyData architecture (Section 2), and detail the key parts of the architecture: Service Registry and Service Discovery (Section 3), Service Linking (Section 4), Authorisation (Section 5), and Data Connection (Section 6). Each detail Section has a corresponding detailed technical document (see References).
+In the following sections we present an overview of the MyData architecture (Section 2), and detail the key parts of the architecture: MyData Account (Section 3), Service Registry and Service Discovery (Section 4), Service Linking (Section 5), Authorisation (Section 6), and Data Connection (Section 7). Each detail Section has a corresponding detailed technical document (see References).
 
-This is the second (v1.1) version of the specification and will be developed upon feedback.
+This is the third (v1.2) release of the specification and will be developed upon feedback.
 
-\newpage
+<table>
+  <tr>
+    <td>Legal Framework for Personal Data Processing in EU
+The processing of personal data is governed by legislation; for MyData architecture documentation, we use the EU General Data Protection Regulation (GDPR) as the example. A number of legal roles relating to personal data processing, most importantly the data subject, the controller, and the processor, all of which are subject to differing rights and obligations, are defined in Art. 4 GDPR. Moreover, the notion of personal data is defined as "any information relating to an identified or identifiable natural person" (the data subject) (Art. 4 (1)). Data controllers and data processors are either natural persons or legal persons, public authorities, agencies, or other bodies (Art. 4 (7)-(8)). The former means the entity which “alone or jointly with others determines the purposes and means of the processing of personal data” whereas the latter “processes personal data on behalf of the controller”. The notion of processing is wide: according to Art. 4 (2) GDPR, processing signifies “any operation or set of operations which is performed upon personal data or sets of personal data, whether or not by automated means, such as collection, recording, organization, structuring, storage, adaptation or alteration, retrieval, consultation, use, disclosure by transmission, dissemination or otherwise making available, alignment or combination, restriction, erasure or destruction”.
 
-## Legal Framework for Personal Data Processing in EU
+Processing of personal data requires a legal basis and there are several possible ones (cf. esp. Arts 6, 9 GDPR). However, from the point of view of self-determination of the data subject, consent signifies an especially important legal basis. According to the GDPR (recital 32; Art. 4 (11)), consent means an indication of the data subject’s wishes by which they signify agreement to the processing of their personal data, either by statement or by “clear affirmative action”; consent must be freely given, specific, informed and unambiguous. Article 7 GDPR provides the framework for consent: first, the controller must be able to demonstrate the existence of consent. Second, in the context of written declarations containing also other matters, consenting must be clearly distinguishable, accessible and understandable in order to be binding. Third, the data subject can always withdraw their consent and this must be as easy as consenting. The lawfulness of processing prior to withdrawal is not affected (Art. 7(3)). Fourth, in assessing the free nature of consent, particular account is to be taken of whether the performance of a contract, including provision of a service, is made conditional on the consent to processing of unnecessary data (i.e. not necessary for the performance of the contract). Prior to consenting, the data subject must be informed while duties related to information are vested on the controller (cf. e.g. Arts 12-14 GDPR). With children below the age of 16 (or depending on national level solutions all the way to the age of 13) parental oversight is required with consenting (Art. 8) in relation to information society services offered directly to a child; processing is lawful to the extent authorized. Furthermore, special categories of personal data, according to Art. 9 GDPR, include those concerning racial or ethnic origin, political opinions, religious or philosophical beliefs, and trade-union membership, as well as genetic data, and data concerning health or sex life. The processing of such data is prohibited unless one of the grounds listed in Art. 9 applies, including explicit consent.
 
-The processing of personal data is governed by applicable legislation; for MyData architecture documentation, we use the upcoming EU General Data Protection Regulation (GDPR[^2]) as the example. A number of legal roles relating to personal data processing, most importantly the data subject, the controller, and the processor, all of which are subject to differing rights and obligations, are defined in Art. 4 GDPR. Moreover, the notion of personal data is defined as "any information relating to an identified or identifiable natural person" (the data subject) (Art. 4(1)). Data controllers and data processors are either natural persons or legal persons, public authorities, agencies, or other bodies (Art. 4(5)-(6)). The former means the entity which “alone or jointly with others determines the purposes and means of the processing of personal data” whereas the latter “processes personal data on behalf of the controller”. The notion of processing is wide: according to Art. 4(3) GDPR, processing signifies “any operation or set of operations which is performed upon personal data or sets of personal data, whether or not by automated means, such as collection, recording, organization, structuring, storage, adaptation or alteration, retrieval, consultation, use, disclosure by transmission, dissemination or otherwise making available, alignment or combination, restriction, erasure or destruction”.
+However, consent cannot legitimise all sorts of processing activities, nor can it negate obligations stemming from general principles of processing, such as purpose limitation and confidentiality (see Art. 5 GDPR). Consent does not necessarily always constitute the most appropriate ground. However, when used appropriately it enables data subjects’ control over their data. In the current MyData architecture, data transactions and processing are based on consents from data subjects, and it is possible to change or withdraw the consent at will.</td>
+  </tr>
+</table>
 
-[^2]: Latest version available at [http://static.ow.ly/docs/Regulation_consolidated_text_EN_47uW.pdf](http://static.ow.ly/docs/Regulation_consolidated_text_EN_47uW.pdf)
-
-Processing of personal data requires a legal basis and there are several possible bases (cf. esp. Arts 6, 9 GDPR). However, from the point of view of self-determination of the data subject, consent signifies an especially important legal basis. According to the GDPR (recital 25; Art. 4(8)), consent means an indication of the data subject’s wishes by which they signify agreement to the processing of their personal data, either by statement or by “clear affirmative action”; consent must be freely given, specific, informed and unambiguous. Article 7 GDPR provides the framework for consent: first, the controller must be able to demonstrate the existence of consent. Second, in the context of written declarations containing also other matters, consenting must be clearly distinguishable, accessible and understandable in order to be binding. Third, the data subject can always withdraw their consent and this must be as easy as consenting. The lawfulness of processing prior to withdrawal is not affected. Fourth, in assessing the free nature of consent, particular account is to be taken of whether the performance of a contract, including provision of a service, is made conditional on the consent to processing of unnecessary data (i.e. not necessary for the performance of the contract). Prior to consenting, the data subject must be informed while duties related to information are vested on the controller (cf. e.g. Arts 12, 14 GDPR). With children below the age of 16 (or depending on national level solutions all the way to the age of 13) parental oversight is required with consenting (Art. 8) in relation to information society services[^3] offered directly to a child; processing is lawful on the basis of consent and to the extent authorized. 
-
-[^3]: According to Art 4(20), the definition of an ‘information society service’ corresponds to that of Art. 1(2) of Directive 98/34/EC, i.e. a service normally provided against payment, at a distance, electronically, and at the recipient’s request. Services relying solely on advertising revenue also meet the first requirement.
-
-Furthermore, special categories of personal data, according to Art. 9 GDPR, include those concerning racial or ethnic origin, political opinions, religious or philosophical beliefs, and trade-union membership, as well as genetic data, and data concerning health or sex life. The processing of such data is prohibited unless one of the grounds listed in Art. 9 applies, including explicit consent.
-
-However, consent cannot legitimise all sorts of processing activities, nor can it negate obligations stemming from general principles related to processing of personal data, such as the purpose limitation (Art. 6 DPD; cf. Art. 5 GDPR). Consent is one possible ground for processing personal data and does not always constitute the most appropriate ground. However, when used appropriately it enables data subjects’ control over their data[^4]. In MyData architecture, all data transactions and processing are based on consents from data subjects, and it is possible to change or withdraw the consent at will.
-
-[^4]: See WP187 Opinion 15/2011 on the definition of consent, July 13, 2011, p. 2, 7-8: [http://ec.europa.eu/justice/policies/privacy/docs/wpdocs/2011/wp187_en.pdf](http://ec.europa.eu/justice/policies/privacy/docs/wpdocs/2011/wp187_en.pdf). The opinion was issued in connection to the Data Protection Directive (95/46/EC; DPD).
-
-\newpage
 
 # 2. MyData Architecture overview
 
-This section first summarises the core concepts from MyData Whitepaper [1] and then provides an overview of the MyData architecture by introducing the transactions, an example use case, and key related standards. The goal is to help understand systems built according to MyData principles without going too deeply in the technical implementation details; technical documentation and code release of a reference implementation of a MyData architecture is provided separately [2-5].
+This section first summarises the core concepts from MyData Whitepaper [1] and then provides an overview of the MyData architecture by introducing the transactions, an example use case, and key related standards. The goal is to help understand systems built according to MyData principles without going too deeply in the technical implementation details; technical documentation and code release of a reference implementation of a MyData architecture is provided separately [2-6].
 
 ## 2.1 Core Concepts
 
 At the heart of MyData are four operational roles and the MyData Account as shown in Figure 2.1.
 
-![](images/core_concepts.png)
+![image alt text](image_1.png)
 
 *Figure 2.1: **Four operational roles within the MyData architecture include 1) individual as the Account Owner 2) MyData Operators, 3) Sources, and 4) Sinks. The MyData Account is hosted by the Operator. Note that the flow of authorisations to use the data is separate from the flow of data.*
 
 ### 2.1.1 MyData Account
 
-A key human centric concept in MyData architecture is a portable **_MyData Account_**, which contains individual’s digital identity or identities, linked services, and authorisations. Potentially, these are complemented with individual’s other data that help in providing additional or improved services. Functionally, MyData Account is the key enabler in authorising, controlling and logging the data flow between multiple services. Portability of the MyData Account is deferred to a later architecture release.
+A key human centric concept in MyData architecture is **_MyData Account_***,* which contains individual’s digital identity or identities, linked services, and authorisations. Potentially, these are complemented with individual’s other data that help in providing additional or improved services. 
 
-The Account is hosted by an independent MyData Operator role. It is expected that most of the operator services will be provided by organisations, though it is also possible for individuals to run the operator software themselves thus becoming self-operators. The key difference is that organisations can potentially provide additional trust, assurance and security levels compared to a self-operator. Acceptance and audit process for an organization wishing to serve as a trusted operator are beyond the scope of this document[^5]. 
+The Account is hosted by an independent MyData Operator, which also provides the tools for the individual to manage their account. 
 
-[^5]: It is likely to be defined along extending the criteria set for entering e.g. a regional or governmental trust network - [ISO/IEC 29115](https://www.idmanagement.gov/IDM/s/) entity authentication assurance level or [FICAM TFS](http://www.iso.org/iso/catalogue_detail.htm?csnumber=45138) are examples of trust and assurance level related requirements that may apply.)
+Finally, MyData Account also enables the user to switch Operators by taking their Account with them. Portability of the MyData Account is deferred to a later architecture release.
 
 ### 2.1.2 Operational Roles
 
@@ -132,15 +128,13 @@ Two typical cases as shown in Figure 2.2 are:
 
 * **Repurposing:** Service is processing personal data for a specified purpose within its own scope - at some point the service may suggest for the Account Owner a new purpose or means of processing data. In this case the Service is in legal terms the Data Controller.
 
-![](images/delegation_repurposing.png)
+![image alt text](image_2.png)
 
 *Figure 2.2: Examples how MyData approach can support different kinds of data flow use cases such as delegation and repurposing.*
 
-## 2.2. Use Case
+## 2.2. Use Case of this Architecture
 
-This example use case is presented to illustrate the possibilities of MyData architecture. The case covers a scenario, where *Alice* authorises a new service *(*imaginary service *Balance)* to access her data from other compatible services *(*imaginary services* Fresh Lunch and TrackMe)* using her Operator (imaginary service *MyData Link)*.
-
-![](images/use_case.png)
+This example use case is presented to illustrate the possibilities of MyData architecture. The case covers a scenario, where *Alice* authorises a new service *(*imaginary service *Balance)* to access her data from other compatible services *(*imaginary services* Fresh Lunch and TrackMe)* using her Operator (imaginary service *MyData Link)*. Currently delegation is the only use case handled throughout the architecture related specifications and reference implementations. Other use cases are deferred to future architecture releases.![image alt text](image_3.png)
 
 Prerequisites:
 
@@ -149,7 +143,6 @@ Prerequisites:
 * Alice has an account at MyData Link
 
 * Alice has an account in TrackMe, and she has the service on her account at MyData Link
-
 
 Story:
 
@@ -163,23 +156,21 @@ Later Alice logs in to her operator MyData Link and sees that the recently conne
 
 After authorizations are granted, the Balance app fetches the data from the API interfaces offered by TrackMe and and Fresh Lunch using a *data connection*. Balance app then uses Alice’s data to provide infographics of her nutritional behaviour versus her current health state and targets.
 
-
 ## 2.3. Transactions
 
 At the highest level there are four sequential (always executed strictly in order listed below) transaction types between Sources, Sinks and the Operator as shown in Figure 2.3:
 
-**1. Account Creation and Service Registration: **Prerequisites for linking new services to an Account are that the Data Subject has created an Account at Operator and that the service to be added has been registered in the Operator’s service registry. Service Registration is discussed in [Section 3.](#heading=h.ycmyid1smpqb)
+**1. Account Creation and Service Registration: **Prerequisites for linking new services to an Account are that the Data Subject has created an Account at Operator and that the service to be added has been registered in the Operator’s service registry. Service Registration is discussed in [Section 4](#heading=h.ycmyid1smpqb).
 
-**2. Service Linking:** Account Owner links a new Source or Sink to their MyData Account. Only services that are linked to an Account can be authorised. Service Linking is discussed in [Section 4](#heading=h.4g32twnc431z). Account Owner can discover compatible services to link by using Operator’s Service Discovery functionality, which is discussed in [Section 3.3](#heading=h.nuq9go3mlaoe).
+**2****. ****Service Linking:** Account Owner links a new Source or Sink to their MyData Account. Only services that are linked to an Account can be authorised. Service Linking is discussed in [Section 5](#heading=h.4g32twnc431z). Account Owner can discover compatible services to link by using Operator’s Service Discovery functionality, which is discussed in [Section 5.3](#heading=h.nuq9go3mlaoe).
 
-**3. Authorisation:** Account Owner authorises a specific Source to provide her data for a specific Sink and the Sink to use that data or a service to further process data it already has. Authorisation is discussed in [Section 5](#heading=h.pdnyzu9te7y6).
+**3. ****Authorisation:** Account Owner authorises a specific Source to provide her data for a specific Sink and the Sink to use that data or a service to further process data it already has. In this architecture version all Authorisations are consent-based. Authorisation is discussed in [Section 6](#heading=h.pdnyzu9te7y6).
 
-**4. Data Connection:** Sink requests data from a Source, relying on the acquired authorisation. Data Connection is discussed in [Section 6](#heading=h.q1yusgvt7c2k).
+**4. Data Connection:** Sink requests data from a Source, relying on the acquired authorisation. Data Connection is discussed in [Section 7](#heading=h.q1yusgvt7c2k).
 
-![](images/transactions.png)
+![image alt text](image_4.png)
 
 *Figure 2.3: Pre-conditions and the transaction types between Sources, Sinks and the Operator.*
-
 
 All transactions performed within MyData architecture all recorded into an Audit Log. This log can be can be used for auditing purposes (c.f. the current databases used in hospitals that automatically log each time someone accesses medical records so that any unauthorised use can later be acted upon) as well as constructing an up-to-date summary of all Service Links, Authorisations and Data Connections associated with a specific MyData Account.
 
@@ -187,11 +178,11 @@ More detailed technical description of the architecture can be found from the te
 
 ## 2.4. Key Related standards
 
-![](images/standards.png)
+![image alt text](image_5.png)
 
 *Figure 2.4: Key related standards.*
 
-The development of MyData architecture has been influenced by many existing and upcoming standards, specifications, and questions raised from reading them. Of particular importance are OAuth 2.0, User Managed Access (UMA) and OpenID Connect as well as the upcoming Minimum Viable Consent Record (MVCR) specification from Kantara Initiative. When applicable, we have used the existing technologies and terminology, but in some areas we have simplified the solution to better suit our needs.
+The development of MyData architecture has been influenced by many existing and upcoming standards, specifications, and questions raised from reading them. Of particular importance are OAuth 2.0, User Managed Access (UMA) and OpenID Connect as well as the upcoming Kantara Initiative’s Consent Record specification (abbreviated here and in other MyData technical specifications as KI-CR). When applicable, we have used the existing technologies and terminology, but in some areas we have simplified the solution to better suit our needs.
 
 Our authorisation is based on a centralized authorisation server similar to UMA. The fact that resource servers and clients are always discoverable and trusted via their registration to the service registry enables our authorisation flow to require fewer messages compared to full UMA flow as we no longer need to introduce the parties to each other in the beginning of authorisation. 
 
@@ -203,15 +194,31 @@ Consent and assignment registry and related digital proofs (transaction records)
 
 W3C’s Data Catalog vocabulary and The RDF Data Cube Vocabulary are used in Service Registry specification. Both of these vocabularies are published as W3C Recommendation 2014 and they are developed for increasing findability of datasets and data items, and interoperability between datasets. They enable authorisations to be used only between compatible services.
 
-\newpage
+# 3. MyData Account
 
-# 3. Service Registration and Service Discovery
+Functionally, MyData Account is the key enabler in authorising, controlling and logging the data flow between multiple services. It keeps track of individual’s consents and other relevant information in a single place thus providing a unified view to all the Authorisations of data flows. Also, it makes it easier for the individual to manage the flows as they are all defined with the same tools, which makes it easier to compare different Authorisations.
 
-Service Registry is part of the Operator and it provides two major functions: it maintains a database of all services accessible with this Operator (Service Registration) and it enable searching for compatible services (Service Discovery) both for the Account Owners using the services and for the developers of services. This section first introduces the different service descriptions used with the registry and then goes over the Service Registration and Service Discovery processes. More detailed technical information about the Service Registry can be found in the MyData Service Registry technical specification [2].
+Typically, MyData Account constain
 
-## 3.1 Service Description
+* basic information about the Account Owner, e.g. contact detail, preferences etc
 
-For efficient service management, discovery, and matching, each service needs to be described in the Service Registry. In addition to the compulsory description data such as service ID and some promotional material e.g. service logo, a Service Description is an aggregation of multiple levels of service descriptions as shown in Figure 3.1:
+* individual’s identities for both single sign-on (SSO) uses and for managing the Service Links and consents. Depending on the implementation, Account could hold just the public keys or both the public and private keys. Naturally, hosting private keys poses more stringent security requirements for the Operator.
+
+* individual’s Service Links and Authorisations as well as their respective Status Records
+
+To be operational, the Account has to be hosted by a MyData Operator. It is expected that most of the operator services will be provided by organisations, though it is also possible for individuals to run the operator software themselves thus becoming self-operators. The key difference is that organisations can potentially provide additional trust, assurance and security levels compared to a self-operator. Acceptance and audit process for an organization wishing to serve as a trusted operator are beyond the scope of this document (NOTE:  It is likely to be defined along extending the criteria set for entering e.g. a regional or governmental trust network - ISO/IEC 29115 entity authentication assurance level or FICAM TFS are examples of trust and assurance level related requirements that may apply.). 
+
+The information in a MyData Account is designed for portability allowing the individual to change operators by taking their account with them. The implementation of portability as a service between Operators is deferred to a later architecture release.
+
+More detailed technical information about the MyData Account can be found in the MyData Account specification [2].
+
+# 4. Service Registration and Service Discovery
+
+Service Registry is part of the Operator and it provides two major functions: it maintains a database of all services accessible with this Operator (Service Registration) and it enable searching for compatible services (Service Discovery) both for the Account Owners using the services and for the developers of services. This section first introduces the different service descriptions used with the registry and then goes over the Service Registration and Service Discovery processes. More detailed technical information about the Service Registry can be found in the MyData Service Registry technical specification [3].
+
+## 4.1 Service Description
+
+For efficient service management, discovery, and matching, each service needs to be described in the Service Registry. In addition to the compulsory description data such as service ID and some promotional material e.g. service logo, a Service Description is an aggregation of multiple levels of service descriptions as shown in Figure 4.1:
 
 * a Human Readable Description forms a basis for promoting and introducing the services to Account Owners 
 
@@ -219,19 +226,19 @@ For efficient service management, discovery, and matching, each service needs to
 
 * Service Data Description is required for intelligent service discovery and matching 
 
-![](images/service_registration.png)
+![image alt text](image_6.png)
 
-*Figure 3.1: Realization of a service registration*
+*Figure 4.1: Realization of a service registration*
 
-### 3.1.1 Human Readable Description
+### 4.1.1 Human Readable Description
 
 A basic Service Description contains a unique service ID, a human readable textual presentation of the service, and possible material (logo etc.) for promoting the service. These are used in various stages for presenting the service and its data in a non-technical, end-user friendly way, such as in the service store, where the Account Owner can discover services. The idea for the Human Readable Descriptions on both the service functionality and the data the service collects or manages is that the Account Owner or the developer trying to link the particular service to his own ecosystem can easily get an overview of the concept.
 
-### 3.1.2 Technical Service Description
+### 4.1.2 Technical Service Description
 
-The Technical Service Description is a document required only for Source services. It presents the technical API for accessing a particular resource. This document can be, for example, a WADL document presenting the API of a REST-style resource interface. WADL (Web Application Description Language) is a machine-readable XML description of HTTP-based web applications. The API is then implemented by one or more data resource instances or service instances. Each service provider specific instance is given an unique ID, which in combination with instance’s unique address enable service linking (Section 4), authorisation management (Section 5) and data access (Section 6).
+The Technical Service Description is a document required only for Source services. It presents the technical API for accessing a particular resource. This document can be, for example, a WADL document presenting the API of a REST-style resource interface. WADL (Web Application Description Language) is a machine-readable XML description of HTTP-based web applications. The API is then implemented by one or more data resource instances or service instances. Each service provider specific instance is given an unique ID, which in combination with instance’s unique address enable service linking (Section 5), authorisation management (Section 6) and data access (Section 7).
 
-### 3.1.3 Service Data Description
+### 4.1.3 Service Data Description
 
 Service Data Description presents the data provided through the service, and it enables finding relevant Sources based on different criteria. For service developers, it supports finding and integrating relevant Sources to a Sink, and for Account Owners it facilitates making recommendations about relevant Sources and Sinks. The description enables defining, what data elements are offered by a Source or required by a Sink. This information is also needed when showing to an end user, what kind of data elements are available in a Source, which the Account Owner uses in deciding, which data elements are made available to a Sink.
 
@@ -241,9 +248,9 @@ Linking of metadata elements to Linked Data and common classification schemes is
 
 Different functionalities such as data transformations, semantic enrichment, and mapping of data elements are needed to support service providers in creating and validating semantic service descriptions. The descriptions are collected when Sources and Sinks are registered in a Service Registry.
 
-## 3.2 Service Registration
+## 4.2 Service Registration
 
-Service Registration is a three step process, where the necessary information for using and discovering the service are published in the registry in a uniform way as shown in Figure 3.2:
+Service Registration is a three step process, where the necessary information for using and discovering the service are published in the registry in a uniform way as shown in Figure 4.2:
 
 1. Service provider registers the services and receives a unique ID (within this registry) for the service. Many operations such as authorisation management or data access logging require the services to be identified. 
 
@@ -251,9 +258,9 @@ Service Registration is a three step process, where the necessary information fo
 
 3. Service Developer provided URLs of service endpoints are linked with the service Resource Description. 
 
-![](images/service_registry.png)
+![image alt text](image_7.png)
 
-*Figure 3.2: Registering a service to a Service Registry*
+*Figure 4.2: Registering a service to a Service Registry*
 
 For service descriptions, the minimum requirement for each Source service is to provide at least one technical interface description (e.g. WADL for REST interface). For enabling advanced service matching and resource set -specific authorisation management, Service Data Descriptions are also required for both Sink and Source type services. In addition to these technical documents, a set of variables describing the service to the service developers (e.g. name, version number, icon, Human Readable Description, etc.) and identifying the service (e.g. provider information) are also registered. These documents are stored on the service provider’s server and only referenced through URL’s from the Service Registry. 
 
@@ -261,7 +268,7 @@ After a Service Description has been registered, the final step is linking servi
 
 Specification and implementation of the Service Registry is based on the [www.digitalserviceshub.com](http://www.digitalserviceshub.com) service registry implementation.
 
-## 3.3 Service Discovery
+## 4.3 Service Discovery
 
 Service Discovery is used for many purposes - e.g. to find and integrate relevant Sources to a Sink, to recommend relevant Sources and Sinks to an Account Owner, and to find relevant Sources for various personal data driven research purposes. As an example, a Sink (application) needs to find Sources that provide certain types of data, e.g. grocery data or fitness data that are needed as input for the Sink. Important information is also, in which format the data is available, i.e. is it e.g. an excel file or REST API, what is the unit of data, etc. 
 
@@ -271,21 +278,19 @@ For more intelligent service discovery and, in particular, intelligent service m
 
 Semantics also support interoperability between different services. It enables more automatic mapping of Source data model to Sink data model. In case there is no semantic description, this means more manual work for a Sink’s developer. For example there may be several Sources for fitness data and every one of them has their own format to describe the fitness data and different set of properties available.
 
-\newpage
+# 5. Service Linking
 
-# 4. Service Linking
+Service Linking is the action, where Account Owner links a service (Source or Sink) to their MyData Account. Only after a Service Link has been established, the Account Owner is able to manage the data sharing and processing authorisations for this service. Service Linking process is documented in detail in [4].
 
-Service Linking is the action, where Account Owner links a service (Source or Sink) to their MyData Account. Only after a Service Link has been established, the Account Owner is able to manage the data sharing and processing authorisations for this service. Service Linking process is documented in detail in [3].
-
-Any service to be linked needs to be registered per the process of Section 3 above. Also, if the service and Account Owner don’t have a previous relationship (e.g. an account at the service), the relationship is assumed to get established during the linking process, e.g. by the Account Owner creating an account to the service.
+Any service to be linked needs to be registered per the process of Section 4 above. Also, if the service and Account Owner don’t have a previous relationship (e.g. an account at the service), the relationship is assumed to get established during the linking process, e.g. by the Account Owner creating an account to the service.
 
 Service linking is initiated by Account Owner through either service-provided UI dialogue or via Operator’s UI. In order to initiate Service Linking, the Account Owner must have been identified and authenticated by the Operator (user has logged into MyData Operator). 
 
-![](images/service_linking.png)
+![image alt text](image_8.png)
 
-*Figure 4.1: The Service Linking process*
+*Figure 5.1: The Service Linking process*
 
-As shown in Figure 4.1, Service Linking consists of four steps:
+As shown in Figure 5.1, Service Linking consists of four steps:
 
 1. Operator’s Service Management -component fetches information needed to start Service Linking process from Service Registry.
 
@@ -295,23 +300,21 @@ As shown in Figure 4.1, Service Linking consists of four steps:
 
 4. Finally Operator delivers a copy of SLR to the service.
 
-As result of Service Linking, the transaction’s status and parameters are documented within a digital machine-readable record, called a Service Link Record (step 3). This record also defines technical information required for authorisation process described in Section 5 (Authorisation).
+As result of Service Linking, the transaction’s status and parameters are documented within a digital machine-readable record, called a Service Link Record (step 3). This record also defines technical information required for authorisation process described in Section 6 (Authorisation).
 
 During service linking process, the surrogate ID is associated to existing Account Owner’s account at the service or an account is generated (step 2). This ID is a pseudonym that is meaningful only to Operator and this specific service. It is used in communication between these two parties whenever they need to unambiguously refer to a specific Account Owner’s MyData Account (messages from service to Operator), or to a specific user account at the service (messages from Operator to service). Surrogate ID is also used in logging MyData related operations that the Operator and the service perform.
 
-\newpage
-
-# 5. Authorisation
+# 6. Authorisation
 
 Data movement and processing are based on Account Owner’s authorisation. Authorisation proves there exists Account Owner’s permission for data processing or provisioning. The Account Owner decides in the authorisation process, what data a service can provision and how the data can be processed and further used. Authorisation can happen only after the service has been linked to MyData Account.
 
 For authorising data transfer from a specific Source to a specific Sink for processing, the Account Owner authorises the Source to provision the data and the Sink to request and process the data. For data processing within a service, the Account Owner authorises the service to process data within the service under rules and constraints set by the Account Owner.
 
-![](images/authorization.png)
+![image alt text](image_9.png)
 
-*Figure 5.1: MyData Authorisation consist of five steps*
+*Figure 6.1: MyData Authorisation consist of five steps*
 
-Authorisation is initiated by Account Owner and it consists of five steps as shown in Figure 5.1:
+Authorisation is initiated by Account Owner and it consists of five steps as shown in Figure 6.1:
 
 1. Fetch service’s Data Description and Resource Description (Source)
 
@@ -333,7 +336,7 @@ Source's CR includes a resource set description that unambiguously describes, wh
 
 After CRs have been delivered, Operator delivers an authorisation token to Sink. This token functions as proof that this specific Sink has been allowed to access Account Owner's data in scope defined by resource set description. Sink must include this token in each data request it makes to Source. 
 
-The way Source provisions data described by resource set description,the actual data requests sent by Sink, and further details about token usage are described in [Section 6](#heading=h.q1yusgvt7c2k) (Data Connection).
+The way Source provisions data described by resource set description,the actual data requests sent by Sink, and further details about token usage are described in [Section 7](#heading=h.q1yusgvt7c2k) (Data Connection).
 
 The Account Owner can, at will, deactivate the authorisation, in which case no new data is provisioned. If the authorisation is reactivated, it is service dependent whether the data collected during the deactivation period now becomes available to the Sink or not. An example would be Account Owner’s current location data, which can be made unavailable for a period and the data for this period will not become available even after reactivation.
 
@@ -343,15 +346,13 @@ Account Owner can make changes to consent using Authorisation Management Service
 
 All Consent Management transactions (create, modify, withdraw) are recorded in Audit Log.
 
-Authorisation is documented in detail in [4].
+Authorisation is documented in detail in [5].
 
-\newpage
+# 7. Data Connection
 
-# 6. Data Connection
+A Data Connection is the event where an authorised transfer of MyData Account Owner’s data from a Source to a Sink is made. Data Connection is possible only after Account Owner has given an authorisation by conducting MyData Authorisation process ([Section 6](#heading=h.pdnyzu9te7y6)). After the MyData Authorisation is issued, authorised data transfers may happen from Source to Sink as long as the authorisation is not deactivated or withdrawn. 
 
-A Data Connection is the event where an authorised transfer of MyData Account Owner’s data from a Source to a Sink is made. Data Connection is possible only after Account Owner has given an authorisation by conducting MyData Authorisation process ([Section 5](#heading=h.pdnyzu9te7y6)). After the MyData Authorisation is issued, authorised data transfers may happen from Source to Sink as long as the authorisation is not deactivated or withdrawn. 
-
-Data Connection consists of 3 steps as shown in Figure 6.1:
+Data Connection consists of 3 steps as shown in Figure 7.1 and covered in detail in [6]:
 
 1. Sink makes a data request to Source using the authorisation token it received from Operator during MyData Authorisation process. Sink must verify the related Consent Record is valid before making the request.
 
@@ -359,64 +360,67 @@ Data Connection consists of 3 steps as shown in Figure 6.1:
 
 3. Based on the validation, Source either grants or denies the data request. As Sink requested data with a token containing only the Resource Set ID, Source uses the Resource Set Description in the Consent Record to determine, what data should actually be given.
 
-![](images/data_connection_process.png)
+![image alt text](image_10.png)
 
-*Figure 6.1: Data Connection process*
+*Figure 7.1: Data Connection process*
 
-All Data Connections are recorded in the Audit Log.
-
-\newpage
+All Data Connections are recorded in the Audit Log.* *
 
 # References
 
-[1] MyData White paper, http://www.lvm.fi/web/en/publication/-/view/4440204.
+[1] MyData White paper, [http://urn.fi/URN:ISBN:978-952-243-455-5](http://urn.fi/URN:ISBN:978-952-243-455-5).
 
-[2] MyData Service Registry, https://github.com/HIIT/mydata-stack/blob/master/MyData%20Service%20Registry%20Specification.pdf
+[2] MyData Account, [https://github.com/HIIT/mydata-stack/blob/master/mydata-account](https://github.com/HIIT/mydata-stack/blob/master/mydata-account.pdf).
 
-[3] MyData Service Linking, https://github.com/HIIT/mydata-stack/blob/master/MyData%20Service%20Linking%20Specification.pdf
+[3] MyData Service Registry, [https://github.com/HIIT/mydata-stack/blob/master/mydata-service-registry](https://github.com/HIIT/mydata-stack/blob/master/mydata-service-registry.pdf).
 
-[4] MyData Authorisation, https://github.com/HIIT/mydata-stack/blob/master/MyData%20Authorisation%20Specification.pdf
+[4] MyData Service Linking, [https://github.com/HIIT/mydata-stack/blob/master/mydata-service-linking](https://github.com/HIIT/mydata-stack/blob/master/mydata-service-linking.pdf).
 
-[5] MyData Data Connection, https://github.com/HIIT/mydata-stack/blob/master/MyData%20Data%20Connection%20Specification.pdf
+[5] MyData Authorisation, [https://github.com/HIIT/mydata-stack/blob/master/mydata-data-authz](https://github.com/HIIT/mydata-stack/blob/master/mydata-data-authz.pdf).
+
+[6] MyData Data Connection, [https://github.com/HIIT/mydata-stack/blob/master/mydata-dconnection](https://github.com/HIIT/mydata-stack/blob/master/mydata-dconnection.pdf).
 
 # Appendix 1: Glossary
 
-**Account Management Service** is the user interface and related service for managing MyData Accounts, Service Connections and MyData Authorizations.
+**Account Owner (AO) [role]** is the person controlling a particular MyData account. Depending on the account type, the owner may be either (strongly) authenticated or even anonymous. In case of natural person, the Account Owner usually is the same as the Data Subject.
 
-**Account Owner (role)** is the person controlling a particular MyData account. Depending on the account type, the owner may be either (strongly) authenticated or even anonymous. In case of natural person, the Account Owner usually is the same as the Data Subject.
+**Account Management Service**** **is the** **user interface and related service for managing MyData Accounts, Service Connections and MyData Authorizations
 
-**Consent (lawful basis)** is one of the grounds for lawfulness of processing personal data and it is given by the Data Subject for one or more specific purposes (Art. 6 GDPR). Consent means "any freely given, specific, informed and unambiguous indication" of the data subject’s wishes by which they signify agreement to processing of their personal data, either by statement or clear affirmative action (Art. 4(8) GDPR). With regard to specific categories of personal data (Art. 9) and transfers of personal data in certain circumstances (Art. 44) consent must also be explicit.
+**Authorisation [interaction]** Account Owner’s act of granting permission for 1) a service to process data or 2) data transfer from a specific Source to a specific Sink. 1) results in a Consent Record and 2) results in a pair of Consent Records (one each for the Source and the Sink) documenting the granted permission.
 
-**Consent Record** documents the permission the Account Owner has granted to a specific service. For authorising data processing within a service, the Account Owner creates a single Consent Record for the related service. For authorising data transfer from a specific Source to a specific Sink, the Account Owner creates a pair of Consent Records (one for the Source and one for the Sink). The Source’s CR defines, what data can be provisioned to the specified Sink, and the Sink’s CR defines, how the data can be accessed. The Sink’s CR can also include the permissions for data processing. A Consent Recordt is a manifestation of legally valid Consent and makes it technically feasible to change or withdraw the consent dynamically. Consent Records are stored in the MyData Account.
+**Consent [****lawful basis]**** **is one of the grounds for lawfulness of processing personal data and it is given by the Data Subject for one or more specific purposes (Arts 6-7 GDPR). Consent means "any freely given, specific, informed and unambiguous indication of the data subject’s wishes" by which agreement to processing of their personal data is signified, either by statement or clear affirmative action (Art. 4 (8) GDPR). With regard to specific categories of personal data (Art. 9), automated decisions, including profiling (Art. 22), and transfers of personal data to third countries (i.e. outside the EU) in certain circumstances (Art. 49) consent must also be explicit.
 
-**Consent Status Record** is a record MyData Operator sends to a service when status of a consent changes. Service MUST store these records for future use.
+**Consent Record**** (CR) **documents the permission the Account Owner has granted to a specific service. For authorising data processing within a service, the Account Owner creates a single Consent Record for the related service. For authorising data transfer from a specific Source to a specific Sink, the Account Owner creates a pair of Consent Records (one for the Source and one for the Sink). The Source’s CR defines, what data can be provisioned to the specified Sink, and the Sink’s CR defines, how the data can be accessed. The Sink’s CR can also include the permissions for data processing. A Consent Record is a manifestation of legally valid Consent and makes it technically feasible to change or withdraw the consent dynamically. Consent Records are stored in the MyData Account.
 
-**Data Connection** is an authorised transfer of data from a specific Source to a specific Sink.
+**Consent Status Record (CSR) **is a record MyData Operator sends to a service when status of a consent changes. Service MUST store these records for future use.
 
-**Data Controller (legal role)** is a natural or legal person, public authority, agency or other body which alone or jointly with others determines the purposes and means of the processing of personal data (Art. 4(5) GDPR). 
+**Data Connection **is an** **authorised transfer of data from a specific Source to a specific Sink.
 
-**Data Processor (legal role)** is a natural or legal person, public authority, agency or any other body which processes personal data on behalf of the data controller. A role that is not defined in U.S. privacy legislation so far (Art. 4(6) GDPR).
+**Data Controller [legal role] **is a natural or legal person, public authority, agency or other body which alone or jointly with others determines the purposes and means of the processing of personal data (Art. 4 (7) GDPR). 
 
-**Data Subject (legal role)** is an identified or identifiable natural person whose personal data is processed (Art. 4(1) GDPR). The data subject has rights (cf. esp. Ch. III GDPR) and practical means to control creation, flow and usage of his personal data. The data subject gives and manages Consents related to their own data and Service Connections.
+**Data Processor [legal role] **is a natural or legal person, public authority, agency or any other body which processes personal data on behalf of the data controller (Art. 4 (8) GDPR).
 
-**Data Transfer Log (record)** Data Connections and unsuccessful attempts of Data Connection are recorded in a log that can be audited using Account Management Service.
+**Data Subject [legal role within the scope of the GDPR] **is an identified or identifiable natural person whose personal data is processed (Art. 4 (1) GDPR). The data subject has rights and practical means to control creation, flow and usage of his personal data. The data subject gives and manages Consents related to their own data and Service Connections.
 
-**MyData** is the subset of personal data that the individual can access and control.
+**Data Transfer Log [record]: **Data Connections and unsuccessful attempts of Data Connection are recorded in a log that can be audited using Account Management Service.
 
-**MyData Account** hosts a person’s all Service Link Records and Consent Records.
+**MyData **is the subset of personal data that the individual can access and control.
 
-**MyData Authorisation (interaction)** Account Owner’s act of granting permission for 1) a service to process data or 2) data transfer from a specific Source to a specific Sink. 1) results in a Consent Record and 2) results in a pair of Consent Records (one each for the Source and the Sink) documenting the granted permission.
+**MyData Account** is a human centric concept in MyData architecture. MyData Account contains Account Owner’s digital identity or identities, linked services and service authorizations. MyData Account can include additional data about Account Owner to help in providing improved services.
 
-**MyData Operator (role)** provides MyData Accounts and the related Account Management Service.
+**MyData Operator [role]) **provides MyData Accounts and the related Account Management Service.
 
-**Personal Data (definition):** All kinds of data related to a person or resulting from the person's activities. The term covers more than just the most personal information, such as name and address. It is also not strictly limited to the legal definition of personally identifiable information. **(legal definition) **any information relating to an identified or identifiable natural person (Art. 4(1) GDPR)
+**Personal Data [definition]: **All kinds of data related to a person or resulting from the person's activities. The term covers more than just the most personal information, such as name and address. It is also not strictly limited to the legal definition of personally identifiable information. **(legal definition) **any information relating to an identified or identifiable natural person (Art. 4 (1) GDPR)
 
-**Service Linking (interaction):** Account Owner’s act of linking a service (Source or Sink) to their MyData Account. As the result the Service Linking status and parameters are documented within a digital machine-readable record, called a Service Link Record.
+**Service Linking [interaction]: **Account Owner’s act of linking a service (Source or Sink) to their MyData Account. As the result the Service Linking status and parameters are documented within a digital machine-readable record, called a Service Link Record.
 
-**Service Link Record** is the outcome of a successful Service Linking. It documents in machine readable form the terms and scope of the agreement between the Account Owner and a single Source or Sink. Service Link Records are stored in the MyData Account.
+**Service Link Record (SLR)** is the outcome of a successful Service Linking. It documents in machine readable form the terms and scope of the agreement between the Account Owner and a single Source or Sink. Service Link Records are stored in the MyData Account.
 
-**Sink (role)** is an entity that can acquire data from one or more Sources and allows management of data processing through a MyData compliant APIs.
+**Service Link Status Record (SSR)**** **is a record MyData Operator sends to a service when status of a Service Link changes. Service MUST store these records for future use.
 
-**Source (role)** is an entity that can provision data about the Account Owner to one or more Sinks and allows management of data provisioning through MyData compliant APIs.
+**Sink [role]**** **is an entity that can acquire data from one or more Sources and allows management of data processing through a MyData compliant APIs.
+
+**Source [role] **is an entity that can provision data about the Account Owner to one or more Sinks and allows management of data provisioning through MyData compliant APIs.
 
 **Surrogate ID** is a pseudonym that associates Account Owner’s MyData Account to his / her account at the service being linked. This ID is meaningful only to Operator and to the service that generated it. It is used in communication between these two parties whenever they need to unambiguously refer to a specific Account Owner’s MyData Account (messages from service to Operator), or to a specific user account at the service (messages from Operator to service).
+
