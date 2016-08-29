@@ -9,16 +9,18 @@ MyData reference architecture presented in this set of specifications is a human
 
 **Download technical specifications linked to the master architecture:**
 
-[MyData Service Linking](https://github.com/HIIT/mydata-stack/blob/master/MyData%20Service%20Linking%20Specification.pdf)
+[MyData Account](https://github.com/HIIT/mydata-stack/blob/master/mydata-account.pdf)
 
-[MyData Service Registry](https://github.com/HIIT/mydata-stack/blob/master/MyData%20Service%20Registry%20Specification.pdf)
+[MyData Service Linking](https://github.com/HIIT/mydata-stack/blob/master/mydata-linking.pdf)
 
-[MyData Authorisation](https://github.com/HIIT/mydata-stack/blob/master/MyData%20Authorisation%20Specification.pdf)
+[MyData Service Registry](https://github.com/HIIT/mydata-stack/blob/master/mydata-registry.pdf)
 
-[MyData Connection](https://github.com/HIIT/mydata-stack/blob/master/MyData%20Data%20Connection%20Specification.pdf)
+[MyData Authorisation](https://github.com/HIIT/mydata-stack/blob/master/mydata-authz.pdf)
+
+[MyData Connection](https://github.com/HIIT/mydata-stack/blob/master/mydata-dconnection.pdf)
 
 
-The specification set is work in progress and this release (1.1) is open for comments and suggestions from all readers.
+The specification set is work in progress and this release (1.2) is open for comments and suggestions from all readers.
 
 
 Contact: Antti Poikola (antti.poikola@hiit.fi), Harri Honko (harri.honko@tut.fi)
