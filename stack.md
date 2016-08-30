@@ -4,7 +4,7 @@ Consent Based Approach for Personal Data Management
 
 Release 1.2
 
-![image alt text](image_0.png)
+![image alt text](images/mydata_logo.png)
 
 **Authors:**
 
@@ -92,7 +92,7 @@ This section first summarises the core concepts from MyData Whitepaper [1] and t
 
 At the heart of MyData are four operational roles and the MyData Account as shown in Figure 2.1.
 
-![image alt text](image_1.png)
+![image alt text](images/image_1.png)
 
 *Figure 2.1: **Four operational roles within the MyData architecture include 1) individual as the Account Owner 2) MyData Operators, 3) Sources, and 4) Sinks. The MyData Account is hosted by the Operator. Note that the flow of authorisations to use the data is separate from the flow of data.*
 
@@ -130,7 +130,7 @@ Two typical cases as shown in Figure 2.2 are:
 
 * **Repurposing:** Service is processing personal data for a specified purpose within its own scope - at some point the service may suggest for the Account Owner a new purpose or means of processing data. In this case the Service is in legal terms the Data Controller.
 
-![image alt text](image_2.png)
+![image alt text](images/delegation_repurposing.png)
 
 *Figure 2.2: Examples how MyData approach can support different kinds of data flow use cases such as delegation and repurposing.*
 
@@ -138,7 +138,7 @@ Two typical cases as shown in Figure 2.2 are:
 
 This example use case is presented to illustrate the possibilities of MyData architecture. The case covers a scenario, where *Alice* authorises a new service *(*imaginary service *Balance)* to access her data from other compatible services *(*imaginary services* Fresh Lunch and TrackMe)* using her Operator (imaginary service *MyData Link)*. Currently delegation is the only use case handled throughout the architecture related specifications and reference implementations. Other use cases are deferred to future architecture releases.
 
-![image alt text](image_3.png)
+![image alt text](images/use_case.png)
 
 Prerequisites:
 
@@ -172,7 +172,7 @@ At the highest level there are four sequential (always executed strictly in orde
 
 **4. Data Connection:** Sink requests data from a Source, relying on the acquired authorisation. Data Connection is discussed in [Section 7](#heading=h.q1yusgvt7c2k).
 
-![image alt text](image_4.png)
+![image alt text](images/image_4.png)
 
 *Figure 2.3: Pre-conditions and the transaction types between Sources, Sinks and the Operator.*
 
@@ -182,7 +182,7 @@ More detailed technical description of the architecture can be found from the te
 
 ## 2.4. Key Related standards
 
-![image alt text](image_5.png)
+![image alt text](images/standards.png)
 
 *Figure 2.4: Key related standards.*
 
@@ -230,7 +230,7 @@ For efficient service management, discovery, and matching, each service needs to
 
 * Service Data Description is required for intelligent service discovery and matching 
 
-![image alt text](image_6.png)
+![image alt text](images/image_6.png)
 
 *Figure 4.1: Realization of a service registration*
 
@@ -262,7 +262,7 @@ Service Registration is a three step process, where the necessary information fo
 
 3. Service Developer provided URLs of service endpoints are linked with the service Resource Description. 
 
-![image alt text](image_7.png)
+![image alt text](images/image_7.png)
 
 *Figure 4.2: Registering a service to a Service Registry*
 
@@ -290,7 +290,7 @@ Any service to be linked needs to be registered per the process of Section 4 abo
 
 Service linking is initiated by Account Owner through either service-provided UI dialogue or via Operator’s UI. In order to initiate Service Linking, the Account Owner must have been identified and authenticated by the Operator (user has logged into MyData Operator). 
 
-![image alt text](image_8.png)
+![image alt text](images/image_8.png)
 
 *Figure 5.1: The Service Linking process*
 
@@ -314,7 +314,7 @@ Data movement and processing are based on Account Owner’s authorisation. Autho
 
 For authorising data transfer from a specific Source to a specific Sink for processing, the Account Owner authorises the Source to provision the data and the Sink to request and process the data. For data processing within a service, the Account Owner authorises the service to process data within the service under rules and constraints set by the Account Owner.
 
-![image alt text](image_9.png)
+![image alt text](images/image_9.png)
 
 *Figure 6.1: MyData Authorisation consist of five steps*
 
@@ -364,7 +364,7 @@ Data Connection consists of 3 steps as shown in Figure 7.1 and covered in detail
 
 3. Based on the validation, Source either grants or denies the data request. As Sink requested data with a token containing only the Resource Set ID, Source uses the Resource Set Description in the Consent Record to determine, what data should actually be given.
 
-![image alt text](image_10.png)
+![image alt text](images/image_10.png)
 
 *Figure 7.1: Data Connection process*
 
