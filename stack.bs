@@ -1,4 +1,4 @@
-<pre class='metadata'>
+﻿<pre class='metadata'>
 Title: MyData Architecture - Consent Based Approach for Personal Data Management
 Shortname: mobility-profile-spec
 Level: 1.2
@@ -21,15 +21,15 @@ Abstract:
 </pre>
 
 
-<img width=200 src='images/mydata_logo.png'>
+<img width=200 src='https://github.com/HIIT/mydata-stack/blob/master/images/mydata_logo.png?raw=true'>[a][b]
 
-
+README: https://github.com/HIIT/mydata-stack
 
 **Notice** 
 
 This document has been prepared by Participants of Digital Health Revolution research program and is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
 
- 
+
 
 Implementation or use of certain elements of this document may require licenses under third party intellectual property rights, including without limitation, patent rights. The Participants of and any other contributors to the Specification are not and shall not be held responsible in any manner for identifying or failing to identify any or all such third party intellectual property rights. This Specification is provided "AS IS," and no Participant makes any warranty of any kind, expressed or implied, including any implied warranties of merchantability, non-infringement of third party intellectual property rights, and fitness for a particular purpose.
 
@@ -58,14 +58,14 @@ In the following sections we present an overview of the MyData architecture (Sec
 This is the third (v1.2) release of the specification and will be developed upon feedback.
 
 <table>
-  <tr>
-    <td>Legal Framework for Personal Data Processing in EU
+ <tr>
+   <td>Legal Framework for Personal Data Processing in EU
 The processing of personal data is governed by legislation; for MyData architecture documentation, we use the EU General Data Protection Regulation (GDPR) as the example. A number of legal roles relating to personal data processing, most importantly the data subject, the controller, and the processor, all of which are subject to differing rights and obligations, are defined in Art. 4 GDPR. Moreover, the notion of personal data is defined as "any information relating to an identified or identifiable natural person" (the data subject) (Art. 4 (1)). Data controllers and data processors are either natural persons or legal persons, public authorities, agencies, or other bodies (Art. 4 (7)-(8)). The former means the entity which “alone or jointly with others determines the purposes and means of the processing of personal data” whereas the latter “processes personal data on behalf of the controller”. The notion of processing is wide: according to Art. 4 (2) GDPR, processing signifies “any operation or set of operations which is performed upon personal data or sets of personal data, whether or not by automated means, such as collection, recording, organization, structuring, storage, adaptation or alteration, retrieval, consultation, use, disclosure by transmission, dissemination or otherwise making available, alignment or combination, restriction, erasure or destruction”.
 
 Processing of personal data requires a legal basis and there are several possible ones (cf. esp. Arts 6, 9 GDPR). However, from the point of view of self-determination of the data subject, consent signifies an especially important legal basis. According to the GDPR (recital 32; Art. 4 (11)), consent means an indication of the data subject’s wishes by which they signify agreement to the processing of their personal data, either by statement or by “clear affirmative action”; consent must be freely given, specific, informed and unambiguous. Article 7 GDPR provides the framework for consent: first, the controller must be able to demonstrate the existence of consent. Second, in the context of written declarations containing also other matters, consenting must be clearly distinguishable, accessible and understandable in order to be binding. Third, the data subject can always withdraw their consent and this must be as easy as consenting. The lawfulness of processing prior to withdrawal is not affected (Art. 7(3)). Fourth, in assessing the free nature of consent, particular account is to be taken of whether the performance of a contract, including provision of a service, is made conditional on the consent to processing of unnecessary data (i.e. not necessary for the performance of the contract). Prior to consenting, the data subject must be informed while duties related to information are vested on the controller (cf. e.g. Arts 12-14 GDPR). With children below the age of 16 (or depending on national level solutions all the way to the age of 13) parental oversight is required with consenting (Art. 8) in relation to information society services offered directly to a child; processing is lawful to the extent authorized. Furthermore, special categories of personal data, according to Art. 9 GDPR, include those concerning racial or ethnic origin, political opinions, religious or philosophical beliefs, and trade-union membership, as well as genetic data, and data concerning health or sex life. The processing of such data is prohibited unless one of the grounds listed in Art. 9 applies, including explicit consent.
 
 However, consent cannot legitimise all sorts of processing activities, nor can it negate obligations stemming from general principles of processing, such as purpose limitation and confidentiality (see Art. 5 GDPR). Consent does not necessarily always constitute the most appropriate ground. However, when used appropriately it enables data subjects’ control over their data. In the current MyData architecture, data transactions and processing are based on consents from data subjects, and it is possible to change or withdraw the consent at will.</td>
-  </tr>
+ </tr>
 </table>
 
 
@@ -243,16 +243,24 @@ Different functionalities such as data transformations, semantic enrichment, and
 
 <pre class=biblio>
 {
-    "1": {
-        "authors": [
-            "Antti Poikola",
-            "Kai Kuikkaniemi",
-            "Harri Honko"
-        ],
-        "href": "http://urn.fi/URN:ISBN:978-952-243-455-5",
-        "title": "MyData – A Nordic Model for human-centered personal data management and processing",
-        "publisher": "Ministry of Transport and Communications"
-    }
+   "1": {
+       "authors": [
+           "Antti Poikola",
+           "Kai Kuikkaniemi",
+           "Harri Honko"
+       ],
+       "href": "http://urn.fi/URN:ISBN:978-952-243-455-5",
+       "title": "MyData – A Nordic Model for human-centered personal data management and processing",
+       "publisher": "Ministry of Transport and Communications"
+   }
 }
 </pre>
 
+
+
+
+
+
+
+[a]Testataan haittaavatko kommentit markdownin generoimista html:ksi?
+[b]kommentit eivät menoa haittaa

@@ -13,7 +13,7 @@ This page documents the workflow for contributing to the future revisions of the
 
 ## Updating the original source
 
-Edit [index.bs](http://bit.ly/sourcemarkdown) source file using the [W3C bikeshed Markdown syntax](https://github.com/tabatkins/bikeshed)
+Edit [stack.bs](http://bit.ly/sourcemarkdown) source file using the [W3C bikeshed Markdown syntax](https://github.com/tabatkins/bikeshed)
 
 Test that the source converts to html witout errors either:
 
@@ -22,8 +22,26 @@ A) Copy the link: http://bit.ly/mydata2html to “Load from URL” in here: http
 OR
 
 B) Run on your command-line the following curl command:
-```curl https://api.csswg.org/bikeshed/ -F url=http://bit.ly/mydata2html > index.html```
+```curl https://api.csswg.org/bikeshed/ -F url=http://bit.ly/mydata2html > stack.tmp.html```
 
 ## Publishing in github
 
+```git clone https://github.com/HIIT/mydata-stack.git```
+
+Download the plain txt [stack.bs](http://bit.ly/mydata2html) -file from Google Drive to the created mydata-stack folder (replace the older version of the file)
+
+Create the html file from stack.bs with curl:
+
 ```curl https://api.csswg.org/bikeshed/ -F file=@stack.bs > stack.html```
+
+Test locally how the html file looks like and if OK commit and push:
+
+```
+git add stack.bs stack.html
+git commit -m 'YOUR COMMIT MESSAGE'
+git push
+
+```
+
+New version should be now visible in: http://hiit.github.io/mydata-stack/stack.html
+
