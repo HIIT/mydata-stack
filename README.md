@@ -23,3 +23,7 @@ OR
 
 B) Run on your command-line the following curl command:
 ```curl https://api.csswg.org/bikeshed/ -F url=http://bit.ly/mydata2html > index.html```
+
+## Publishing in github
+
+```curl https://api.csswg.org/bikeshed/ -F file=@stack.bs > stack.html```
