@@ -1,5 +1,7 @@
 # MyData Architecture - *The Stack*
 
+[![Join the chat at https://gitter.im/mydata-stack/Lobby](https://badges.gitter.im/mydata-stack/Lobby.svg)](https://gitter.im/mydata-stack/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 ![](images/mydata_logo.png)
 
 ## [Download paper in PDF](https://github.com/HIIT/mydata-stack/raw/master/stack.pdf)
