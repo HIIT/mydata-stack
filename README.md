@@ -2,50 +2,24 @@
 
 [![Join the chat at https://gitter.im/mydata-stack/Lobby](https://badges.gitter.im/mydata-stack/Lobby.svg)](https://gitter.im/mydata-stack/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-![](images/mydata_logo.png)
+This page documents the workflow for contributing to the future revisions of the specifications. For reading and downloading the latest release see. http://hiit.github.io/mydata-stack
 
-## [Download paper in PDF](https://github.com/HIIT/mydata-stack/raw/master/stack.pdf)
+## Contributing to the specification
 
+- Join the chat at: https://gitter.im/mydata-stack/Lobby
+- Suggest changes with Github issues: https://github.com/HIIT/mydata-stack/issues
+- With Google account you can comment directly: http://bit.ly/sourcemarkdown
+- Contact: Harri Honko (harri.honko@tut.fi) or Antti Poikola (antti.poikola@hiit.fi)
 
-MyData reference architecture presented in this set of specifications is a human centric approach to liberate the potential of personal data and to facilitate its controlled flow from multiple data sources to applications and services. It responds on a practical and technical level to individuals growing demand for control over their own digital identity and to organizations need to fulfill the requirements of tightening data protection regulation, especially on digital, dynamic consents. Architecture takes an attempt to provide individuals and service providers a rigid framework for consent and data authorisation management and service registration via a standard and interoperable mechanism.
+## Updating the original source
 
-**Download technical specifications linked to the master architecture:**
+Edit [index.bs](http://bit.ly/sourcemarkdown) source file using the [W3C bikeshed Markdown syntax](https://github.com/tabatkins/bikeshed)
 
-[MyData Account](https://github.com/HIIT/mydata-stack/blob/master/mydata-account.pdf)
+Test that the source converts to html witout errors either:
 
-[MyData Service Linking](https://github.com/HIIT/mydata-stack/blob/master/mydata-linking.pdf)
+A) Copy the link: http://bit.ly/mydata2html to “Load from URL” in here: https://api.csswg.org/bikeshed
 
-[MyData Service Registry](https://github.com/HIIT/mydata-stack/blob/master/mydata-registry.pdf)
+OR
 
-[MyData Authorisation](https://github.com/HIIT/mydata-stack/blob/master/mydata-data-authz.pdf)
-
-[MyData Connection (1.1, update coming)](https://github.com/HIIT/mydata-stack/blob/master/MyData%20Data%20Connection%20Specification.pdf)
-
-
-The specification set is work in progress and this release (1.2) is open for comments and suggestions from all readers.
-
-
-Contact: Antti Poikola (antti.poikola@hiit.fi), Harri Honko (harri.honko@tut.fi)
-
-
-**Authors:**
-<pre>
-Anette Alén-Savikko Aalto University / Helsinki Institute for Information Technology HIIT
-Nomi Byström        Aalto University / Helsinki Institute for Information Technology HIIT
-Harri Hirvonsalo    University of Oulu
-Harri Honko         Tampere University of Technology
-Antti Kallonen      Tampere University of Technology
-Yki Kortesniemi     Aalto University / Helsinki Institute for Information Technology HIIT
-Kai Kuikkaniemi     Aalto University / Helsinki Institute for Information Technology HIIT
-Tuomas Paaso        VTT Oy
-Olli Pitkänen       Aalto University / Helsinki Institute for Information Technology HIIT
-Antti Poikola       Aalto University / Helsinki Institute for Information Technology HIIT
-Samuli Tuoriniemi   University of Oulu
-Sari Vainikainen    VTT Oy
-Jani Yli-Kantola    University of Oulu
-
-</pre>
-
-
-
-[![DOI](https://zenodo.org/badge/985/HIIT/mydata-stack.svg)](http://dx.doi.org/10.5281/zenodo.17628)
+B) Run on your command-line the following curl command:
+```curl https://api.csswg.org/bikeshed/ -F url=http://bit.ly/mydata2html > index.html```
