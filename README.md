@@ -4,14 +4,15 @@
 
 This page documents the workflow for contributing to the future revisions of the specifications. For reading and downloading the latest release see. http://hiit.github.io/mydata-stack
 
-## Contributing to the specification
+## Contributing to the specification (open for all)
 
+- Read the specification at: http://hiit.github.io/mydata-stack/stack.html
 - Join the chat at: https://gitter.im/mydata-stack/Lobby
 - Suggest changes with Github issues: https://github.com/HIIT/mydata-stack/issues
-- With Google account you can comment directly: http://bit.ly/sourcemarkdown
+- Comment and suggest changes directly: http://bit.ly/sourcemarkdown
 - Contact: Harri Honko (harri.honko@tut.fi) or Antti Poikola (antti.poikola@hiit.fi)
 
-## Updating the original source
+## Updating the original source (editor only)
 
 Edit [stack.bs](http://bit.ly/sourcemarkdown) source file using the [W3C bikeshed Markdown syntax](https://github.com/tabatkins/bikeshed)
 
