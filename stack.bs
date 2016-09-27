@@ -4,6 +4,7 @@ Shortname: mobility-profile-spec
 Level: 1.2
 Status: LS
 URL: 
+Repository: HIIT/mydata-stack
 Editor: Anette Alén-Savikko, Aalto University / Helsinki Institute for Information Technology HIIT
 Editor: Nomi Byström, Aalto University / Helsinki Institute for Information Technology HIIT
 Editor: Harri Hirvonsalo, University of Oulu
@@ -18,12 +19,14 @@ Editor: Samuli Tuoriniemi, University of Oulu
 Editor: Sari Vainikainen, VTT Oy
 Editor: Jani Yli-Kantola, University of Oulu
 Abstract: 
+!Version History: <a href="https://github.com/HIIT/mydata-stack/commits">https://github.com/HIIT/mydata-stack/commits</a>
+!Participate: <a href="https://github.com/HIIT/mydata-stack/issues/new">File an issue</a> (<a href="https://github.com/HIIT/mydata-stack/issues?state=open">open issues</a>)
 </pre>
 
 
-<img width=200 src='https://github.com/HIIT/mydata-stack/blob/master/images/mydata_logo.png?raw=true'>[a][b]
+<img width=200 src='images/mydata_logo.png'>[a][b]
 
-README: https://github.com/HIIT/mydata-stack
+README : [https://github.com/HIIT/mydata-stack](https://github.com/HIIT/mydata-stack)
 
 **Notice** 
 
@@ -77,7 +80,7 @@ This section first summarises the core concepts from MyData Whitepaper [[1]] and
 
 At the heart of MyData are four operational roles and the MyData Account as shown in Figure 2.1.
 
-<img src='images/image_1.png'>
+<img src='images/image_1.png' style="width:80%;">
 
 *Figure 2.1: **Four operational roles within the MyData architecture include 1) individual as the Account Owner 2) MyData Operators, 3) Sources, and 4) Sinks. The MyData Account is hosted by the Operator. Note that the flow of authorisations to use the data is separate from the flow of data.*
 
@@ -115,17 +118,20 @@ Two typical cases as shown in Figure 2.2 are:
 
 <dfn>Repurposing</dfn> Service is processing personal data for a specified purpose within its own scope - at some point the service may suggest for the Account Owner a new purpose or means of processing data. In this case the Service is in legal terms the Data Controller.
 
-<img src='images/delegation_repurposing.png'>
+<img src='images/delegation_repurposing.png' style="width:100%;">
 
-<img src='images/image_1.png'>
+<img src='images/image_1.png' style="width:80%;">
 
 *Figure 2.2: Examples how MyData approach can support different kinds of data flow use cases such as delegation and repurposing.*
+
+
+Issue(3): Image captions
 
 ## Use Case of this Architecture ## {#usecase}
 
 This example use case is presented to illustrate the possibilities of MyData architecture. The case covers a scenario, where *Alice* authorises a new service *(*imaginary service *Balance)* to access her data from other compatible services *(*imaginary services* Fresh Lunch and TrackMe)* using her Operator (imaginary service *MyData Link)*. Currently delegation is the only use case handled throughout the architecture related specifications and reference implementations. Other use cases are deferred to future architecture releases.
 
-<img src='images/use_case.png'>
+<img src='images/use_case.png' style="width:100%;>
 
 Prerequisites:
 
@@ -159,7 +165,7 @@ At the highest level there are four sequential (always executed strictly in orde
 
 **4. Data Connection:** Sink requests data from a Source, relying on the acquired authorisation. Data Connection is discussed in [Section 7](#heading=h.q1yusgvt7c2k).
 
-<img src='images/image_4.png'>
+<img src='images/image_4.png' style="width:100%;>
 
 *Figure 2.3: Pre-conditions and the transaction types between Sources, Sinks and the Operator.*
 
@@ -169,7 +175,7 @@ More detailed technical description of the architecture can be found from the te
 
 ## Key Related standards ## {#related}
 
-<img src='images/standards.png'>
+<img src='images/standards.png' style="width:100%;>
 
 *Figure 2.4: Key related standards.*
 

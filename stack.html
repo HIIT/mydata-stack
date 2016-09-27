@@ -1326,9 +1326,12 @@ Possible extra rowspan handling
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">MyData Architecture - Consent Based Approach for Personal Data Management</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Living Standard, <time class="dt-updated" datetime="2016-09-15">15 September 2016</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Living Standard, <time class="dt-updated" datetime="2016-09-27">27 September 2016</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
+     <dt>Issue Tracking:
+     <dd><a href="https://github.com/HIIT/mydata-stack/issues/">GitHub</a>
+     <dd><a href="#issues-index">Inline In Spec</a>
      <dt class="editor">Editors:
      <dd class="editor p-author h-card vcard"><span class="p-name fn">Anette Alén-Savikko</span> (<span class="p-org org">Aalto University / Helsinki Institute for Information Technology HIIT</span>)
      <dd class="editor p-author h-card vcard"><span class="p-name fn">Nomi Byström</span> (<span class="p-org org">Aalto University / Helsinki Institute for Information Technology HIIT</span>)
@@ -1343,12 +1346,16 @@ Possible extra rowspan handling
      <dd class="editor p-author h-card vcard"><span class="p-name fn">Samuli Tuoriniemi</span> (<span class="p-org org">University of Oulu</span>)
      <dd class="editor p-author h-card vcard"><span class="p-name fn">Sari Vainikainen</span> (<span class="p-org org">VTT Oy</span>)
      <dd class="editor p-author h-card vcard"><span class="p-name fn">Jani Yli-Kantola</span> (<span class="p-org org">University of Oulu</span>)
+     <dt>Version History:
+     <dd><span><a href="https://github.com/HIIT/mydata-stack/commits">https://github.com/HIIT/mydata-stack/commits</a></span>
+     <dt>Participate:
+     <dd><span><a href="https://github.com/HIIT/mydata-stack/issues/new">File an issue</a> (<a href="https://github.com/HIIT/mydata-stack/issues?state=open">open issues</a>)</span>
     </dl>
    </div>
    <div data-fill-with="warning"></div>
    <p class="copyright" data-fill-with="copyright"><a href="http://creativecommons.org/publicdomain/zero/1.0/" rel="license"><img alt="CC0" src="https://licensebuttons.net/p/zero/1.0/80x15.png"></a> To the extent possible under law, the editors have waived all copyright
 and related or neighboring rights to this work.
-In addition, as of 15 September 2016,
+In addition, as of 27 September 2016,
 the editors have made this specification available under the <a href="http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0" rel="license">Open Web Foundation Agreement Version 1.0</a>,
 which is available at http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0.
 Parts of this work may be from another specification document.  If so, those parts are instead covered by the license of that specification document. </p>
@@ -1373,7 +1380,6 @@ Parts of this work may be from another specification document.  If so, those par
        </ol>
       <li><a href="#usecase"><span class="secno">2.2</span> <span class="content">Use Case of this Architecture</span></a>
       <li><a href="#transactions"><span class="secno">2.3</span> <span class="content">Transactions</span></a>
-      <li><a href="#related"><span class="secno">2.4</span> <span class="content">Key Related standards</span></a>
      </ol>
     <li><a href="#account-transactions"><span class="secno">3</span> <span class="content">MyData Account</span></a>
     <li>
@@ -1399,11 +1405,12 @@ Parts of this work may be from another specification document.  If so, those par
       <li><a href="#normative"><span class="secno"></span> <span class="content">Normative References</span></a>
       <li><a href="#informative"><span class="secno"></span> <span class="content">Informative References</span></a>
      </ol>
+    <li><a href="#issues-index"><span class="secno"></span> <span class="content">Issues Index</span></a>
    </ol>
   </nav>
   <main>
-   <p><img src="https://github.com/HIIT/mydata-stack/blob/master/images/mydata_logo.png?raw=true" width="200">[a][b]</p>
-   <p>README: https://github.com/HIIT/mydata-stack</p>
+   <p><img src="images/mydata_logo.png" width="200">[a][b]</p>
+   <p>README : [https://github.com/HIIT/mydata-stack](https://github.com/HIIT/mydata-stack)</p>
    <p>**Notice**</p>
    <p>This document has been prepared by Participants of Digital Health Revolution research program and is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.</p>
    <p>Implementation or use of certain elements of this document may require licenses under third party intellectual property rights, including without limitation, patent rights. The Participants of and any other contributors to the Specification are not and shall not be held responsible in any manner for identifying or failing to identify any or all such third party intellectual property rights. This Specification is provided "AS IS," and no Participant makes any warranty of any kind, expressed or implied, including any implied warranties of merchantability, non-infringement of third party intellectual property rights, and fitness for a particular purpose.</p>
@@ -1439,7 +1446,7 @@ The processing of personal data is governed by legislation; for MyData architect
    <p>This section first summarises the core concepts from MyData Whitepaper <a data-link-type="biblio" href="#biblio-1">[1]</a> and then provides an overview of the MyData architecture by introducing the transactions, an example use case, and key related standards. The goal is to help understand systems built according to MyData principles without going too deeply in the technical implementation details; technical documentation and code release of a reference implementation of a MyData architecture is provided separately [2-6].</p>
    <h3 class="heading settled" data-level="2.1" id="concepts"><span class="secno">2.1. </span><span class="content">Core Concepts</span><a class="self-link" href="#concepts"></a></h3>
    <p>At the heart of MyData are four operational roles and the MyData Account as shown in Figure 2.1.</p>
-   <p><img src="images/image_1.png"></p>
+   <p><img src="images/image_1.png" style="width:80%;"></p>
    <p>*Figure 2.1: **Four operational roles within the MyData architecture include 1) individual as the Account Owner 2) MyData Operators, 3) Sources, and 4) Sinks. The MyData Account is hosted by the Operator. Note that the flow of authorisations to use the data is separate from the flow of data.*</p>
    <h4 class="heading settled" data-level="2.1.1" id="account"><span class="secno">2.1.1. </span><span class="content">MyData Account</span><a class="self-link" href="#account"></a></h4>
    <p>A key human centric concept in MyData architecture is <dfn data-dfn-type="dfn" data-noexport="" id="mydata-account">MyData Account<a class="self-link" href="#mydata-account"></a></dfn>, which contains individual’s digital identity or identities, linked services, and authorisations. Potentially, these are complemented with individual’s other data that help in providing additional or improved services.</p>
@@ -1462,23 +1469,25 @@ The processing of personal data is governed by legislation; for MyData architect
    <p>Two typical cases as shown in Figure 2.2 are:</p>
    <p><dfn data-dfn-type="dfn" data-noexport="" id="delegation">Delegation<a class="self-link" href="#delegation"></a></dfn> With Account Owner’s consent, Sink accesses personal data from the Source and processes it for the defined purpose. In this case, both the Source and the Sink are in legal terms Data Controllers.</p>
    <p><dfn data-dfn-type="dfn" data-noexport="" id="repurposing">Repurposing<a class="self-link" href="#repurposing"></a></dfn> Service is processing personal data for a specified purpose within its own scope - at some point the service may suggest for the Account Owner a new purpose or means of processing data. In this case the Service is in legal terms the Data Controller.</p>
-   <p><img src="images/delegation_repurposing.png"></p>
-   <p><img src="images/image_1.png"></p>
+   <p><img src="images/delegation_repurposing.png" style="width:100%;"></p>
+   <p><img src="images/image_1.png" style="width:80%;"></p>
    <p>*Figure 2.2: Examples how MyData approach can support different kinds of data flow use cases such as delegation and repurposing.*</p>
+   <p class="issue" id="issue-6fed6467"><a class="self-link" href="#issue-6fed6467"></a> Image captions <a href="https://github.com/HIIT/mydata-stack/issues/3">&lt;https://github.com/HIIT/mydata-stack/issues/3></a></p>
    <h3 class="heading settled" data-level="2.2" id="usecase"><span class="secno">2.2. </span><span class="content">Use Case of this Architecture</span><a class="self-link" href="#usecase"></a></h3>
    <p>This example use case is presented to illustrate the possibilities of MyData architecture. The case covers a scenario, where *Alice* authorises a new service *(*imaginary service *Balance)* to access her data from other compatible services *(*imaginary services* Fresh Lunch and TrackMe)* using her Operator (imaginary service *MyData Link)*. Currently delegation is the only use case handled throughout the architecture related specifications and reference implementations. Other use cases are deferred to future architecture releases.</p>
-   <p><img src="images/use_case.png"></p>
-   <p>Prerequisites:</p>
-   <ul>
-    <li data-md="">
-     <p>Fresh Lunch, TrackMe and Balance are already known services at MyData Link</p>
-    <li data-md="">
-     <p>Alice has an account at MyData Link</p>
-    <li data-md="">
-     <p>Alice has an account in TrackMe, and she has the service on her account at MyData Link</p>
-   </ul>
-   <p>Story:</p>
-   <p>Alice gets a tip about a new application "Balance" for her mobile phone from her personal trainer Bob and decides to try it out.</p>
+   <p><img and="" balanceU00022="" bob="" decides="" for="" from="" her="" it="" mobile="" out.U0003C="" p="" personal="" phone="" src="images/use_case.png" style="width:100%;></p>
+
+<p>Prerequisites:</p>
+
+<ul data-md><li data-md><p>Fresh Lunch, TrackMe and Balance are already known services at MyData Link</p>
+
+</li><li data-md><p>Alice has an account at MyData Link</p>
+
+</li><li data-md><p>Alice has an account in TrackMe, and she has the service on her account at MyData Link</p>
+</li></ul>
+<p>Story:</p>
+
+<p>Alice gets a tip about a new application " to="" trainer="" try=""> </p>
    <p>Balance is MyData compatible and, thus, it asks Alice, if she already has a MyData Account with which to *link*, or if she would be interested in creating a new account with a recommended operator. Alice picks the ‘Link existing account’ choice and authenticates to her account at MyData Link from within the Balance app.</p>
    <p>The Balance app then suggests that Alice links also her activity tracker and restaurant bill data, as access to these would improve the use of the app. However, Balance can be used also without these enriching data sources. By using the embedded MyData Link user interface within the Balance app, Alice *authorises* the Balance app to access her data from TrackMe, but leaves the restaurant bills out.</p>
    <p>Later Alice logs in to her operator MyData Link and sees that the recently connected Balance app now appears on the list of her services. User Interface of the MyData Link operator has functionality for *discovering* compatible services amongst those the operator has on its service listing. With that Alice finds out that Balance app could also use data from the Fresh Lunch restaurant chain. Alice decides to subscribe to Fresh Lunch’s loyalty program, link Fresh Lunch to her account at MyData Link, and authorises the Balance app to access her restaurant bill data.</p>
@@ -1489,12 +1498,17 @@ The processing of personal data is governed by legislation; for MyData architect
    <p>**2****. ****Service Linking:** Account Owner links a new Source or Sink to their MyData Account. Only services that are linked to an Account can be authorised. Service Linking is discussed in [Section 5](#heading=h.4g32twnc431z). Account Owner can discover compatible services to link by using Operator’s Service Discovery functionality, which is discussed in [Section 5.3](#heading=h.nuq9go3mlaoe).</p>
    <p>**3. ****Authorisation:** Account Owner authorises a specific Source to provide her data for a specific Sink and the Sink to use that data or a service to further process data it already has. In this architecture version all Authorisations are consent-based. Authorisation is discussed in [Section 6](#heading=h.pdnyzu9te7y6).</p>
    <p>**4. Data Connection:** Sink requests data from a Source, relying on the acquired authorisation. Data Connection is discussed in [Section 7](#heading=h.q1yusgvt7c2k).</p>
-   <p><img src="images/image_4.png"></p>
-   <p>*Figure 2.3: Pre-conditions and the transaction types between Sources, Sinks and the Operator.*</p>
-   <p>All transactions performed within MyData architecture all recorded into an Audit Log. This log can be can be used for auditing purposes (c.f. the current databases used in hospitals that automatically log each time someone accesses medical records so that any unauthorised use can later be acted upon) as well as constructing an up-to-date summary of all Service Links, Authorisations and Data Connections associated with a specific MyData Account.</p>
-   <p>More detailed technical description of the architecture can be found from the technical specifications [2-5].</p>
-   <h3 class="heading settled" data-level="2.4" id="related"><span class="secno">2.4. </span><span class="content">Key Related standards</span><a class="self-link" href="#related"></a></h3>
-   <p><img src="images/standards.png"></p>
+   <p><img src="images/image_4.png" style="width:100%;></p>
+
+<p>*Figure 2.3: Pre-conditions and the transaction types between Sources, Sinks and the Operator.*</p>
+
+<p>All transactions performed within MyData architecture all recorded into an Audit Log. This log can be can be used for auditing purposes (c.f. the current databases used in hospitals that automatically log each time someone accesses medical records so that any unauthorised use can later be acted upon) as well as constructing an up-to-date summary of all Service Links, Authorisations and Data Connections associated with a specific MyData Account.</p>
+
+<p>More detailed technical description of the architecture can be found from the technical specifications [2-5].</p>
+
+<h3 id=&apos;related&apos;>Key Related standards</h3>
+
+<p><img src=&apos;images/standards.png&apos; style=" widthU0003A100U00025U0003B=""></p>
    <p>*Figure 2.4: Key related standards.*</p>
    <p>The development of MyData architecture has been influenced by many existing and upcoming standards, specifications, and questions raised from reading them. Of particular importance are OAuth 2.0, User Managed Access (UMA) and OpenID Connect as well as the upcoming Kantara Initiative’s Consent Record specification (abbreviated here and in other MyData technical specifications as KI-CR). When applicable, we have used the existing technologies and terminology, but in some areas we have simplified the solution to better suit our needs.</p>
    <p>Our authorisation is based on a centralized authorisation server similar to UMA. The fact that resource servers and clients are always discoverable and trusted via their registration to the service registry enables our authorisation flow to require fewer messages compared to full UMA flow as we no longer need to introduce the parties to each other in the beginning of authorisation.</p>
@@ -1710,3 +1724,7 @@ The processing of personal data is governed by legislation; for MyData architect
    <dt id="biblio-1">[1]
    <dd>Antti Poikola; Kai Kuikkaniemi; Harri Honko. <a href="http://urn.fi/URN:ISBN:978-952-243-455-5">MyData – A Nordic Model for human-centered personal data management and processing</a>. URL: <a href="http://urn.fi/URN:ISBN:978-952-243-455-5">http://urn.fi/URN:ISBN:978-952-243-455-5</a>
   </dl>
+  <h2 class="no-num no-ref heading settled" id="issues-index"><span class="content">Issues Index</span><a class="self-link" href="#issues-index"></a></h2>
+  <div style="counter-reset:issue">
+   <div class="issue"> Image captions <a href="https://github.com/HIIT/mydata-stack/issues/3">&lt;https://github.com/HIIT/mydata-stack/issues/3></a><a href="#issue-6fed6467"> ↵ </a></div>
+  </div>
